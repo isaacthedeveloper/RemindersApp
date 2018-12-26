@@ -9,12 +9,12 @@
 import UIKit
 
 protocol AddItemViewControllerDelegate: class {
-    func addItemViewControllerDidCancel(_ controller: AddItemViewController)
-    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ReminderItem)
-    func addItemViewController(_ controller: AddItemViewController, didFinishEditting item: ReminderItem)
+    func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController)
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ReminderItem)
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditting item: ReminderItem)
 }
 
-class AddItemViewController: UITableViewController, UITextFieldDelegate {
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     weak var delegate: AddItemViewControllerDelegate?
     var itemToEdit: ReminderItem?
     override func viewDidLoad() {
@@ -37,16 +37,16 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
     @IBAction func cancel() {
-        delegate?.addItemViewControllerDidCancel(self)
+        delegate?.itemDetailViewControllerDidCancel(self)
     }
     @IBAction func done() {
         if let item = itemToEdit {
             item.text = textField.text!
-            delegate?.addItemViewController(self, didFinishEditting: item)
+            delegate?.itemDetailViewController(self, didFinishEditting: item)
         }
         let item = ReminderItem()
         item.text = textField.text!
-        delegate?.addItemViewController(self, didFinishAdding: item)
+        delegate?.itemDetailViewController(self, didFinishAdding: item)
         
     }
     

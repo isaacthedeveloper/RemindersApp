@@ -73,11 +73,11 @@ class RemindersTableViewController: UITableViewController, AddItemViewController
     }
     
     // MARK: - AddItemViewController Delegates
-    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+    func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ReminderItem) {
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ReminderItem) {
         let newRowIndex = items.count
         items.append(item)
         let indexPath = IndexPath(row: newRowIndex, section: 0)
@@ -86,7 +86,7 @@ class RemindersTableViewController: UITableViewController, AddItemViewController
         navigationController?.popViewController(animated: true)
     }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishEditting item: ReminderItem) {
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditting item: ReminderItem) {
         // Get the row number, the row number is the same as the index of the ReminderItem in the array.
         if let index = items.index(of: item) {
             let indexPath = IndexPath(row: index, section: 0)
@@ -100,11 +100,11 @@ class RemindersTableViewController: UITableViewController, AddItemViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddItem" {
             // Cast the segue.destinantion
-            let controller = segue.destination as! AddItemViewController
+            let controller = segue.destination as! ItemDetailViewController
             // Set the delegate property to self.
             controller.delegate = self
         } else if segue.identifier == "EditItem" {
-            let controller = segue.destination as! AddItemViewController
+            let controller = segue.destination as! ItemDetailViewController
             controller.delegate = self
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 controller.itemToEdit = items[indexPath.row]

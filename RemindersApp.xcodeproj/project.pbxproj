@@ -13,7 +13,7 @@
 		73BB748721CDC201001346E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BB748521CDC201001346E6 /* LaunchScreen.storyboard */; };
 		73BB748F21CDC27F001346E6 /* ReminderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB748E21CDC27F001346E6 /* ReminderItem.swift */; };
 		73BB749121CDC2B5001346E6 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB749021CDC2B5001346E6 /* ReminderViewController.swift */; };
-		73BB749321CDC2CC001346E6 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB749221CDC2CC001346E6 /* AddItemViewController.swift */; };
+		73BB749321CDC2CC001346E6 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB749221CDC2CC001346E6 /* ItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		73BB748821CDC201001346E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73BB748E21CDC27F001346E6 /* ReminderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderItem.swift; sourceTree = "<group>"; };
 		73BB749021CDC2B5001346E6 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
-		73BB749221CDC2CC001346E6 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		73BB749221CDC2CC001346E6 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				73BB748021CDC1FF001346E6 /* Main.storyboard */,
 				73BB748E21CDC27F001346E6 /* ReminderItem.swift */,
 				73BB749021CDC2B5001346E6 /* ReminderViewController.swift */,
-				73BB749221CDC2CC001346E6 /* AddItemViewController.swift */,
+				73BB749221CDC2CC001346E6 /* ItemDetailViewController.swift */,
 				73BB748321CDC201001346E6 /* Assets.xcassets */,
 				73BB748521CDC201001346E6 /* LaunchScreen.storyboard */,
 				73BB748821CDC201001346E6 /* Info.plist */,
@@ -142,7 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73BB748F21CDC27F001346E6 /* ReminderItem.swift in Sources */,
-				73BB749321CDC2CC001346E6 /* AddItemViewController.swift in Sources */,
+				73BB749321CDC2CC001346E6 /* ItemDetailViewController.swift in Sources */,
 				73BB747D21CDC1FF001346E6 /* AppDelegate.swift in Sources */,
 				73BB749121CDC2B5001346E6 /* ReminderViewController.swift in Sources */,
 			);
