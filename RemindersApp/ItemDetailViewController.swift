@@ -1,5 +1,5 @@
 //
-//  AddItemViewController.swift
+//  ItemDetailViewController.swift
 //  RemindersApp
 //
 //  Created by Isaac Ballas on 12/21/18.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol AddItemViewControllerDelegate: class {
+protocol ItemDetailViewControllerDelegate: class {
     func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController)
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ReminderItem)
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditting item: ReminderItem)
 }
 
 class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
-    weak var delegate: AddItemViewControllerDelegate?
+    weak var delegate: ItemDetailViewControllerDelegate?
     var itemToEdit: ReminderItem?
     override func viewDidLoad() {
         super.viewDidLoad()

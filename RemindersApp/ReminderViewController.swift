@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RemindersTableViewController: UITableViewController, AddItemViewControllerDelegate {
+class RemindersTableViewController: UITableViewController, ItemDetailViewControllerDelegate {
     var items = [ReminderItem]()
     
     override func viewDidLoad() {
@@ -72,7 +72,7 @@ class RemindersTableViewController: UITableViewController, AddItemViewController
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
     
-    // MARK: - AddItemViewController Delegates
+    // MARK: - ItemDetailViewController Delegates
     func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
