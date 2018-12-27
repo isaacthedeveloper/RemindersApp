@@ -12,7 +12,7 @@
         <!--Root View Controller-->
         <scene sceneID="Kjm-84-oYU">
             <objects>
-                <tableViewController id="K6Q-OA-FBv" customClass="RemindersTableViewController" customModule="RemindersApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="K6Q-OA-FBv" customClass="ReminderViewController" customModule="RemindersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tkz-By-K3k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,25 +26,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRL-Az-Ky6">
-                                            <rect key="frame" x="32" y="11.5" width="259" height="21"/>
+                                            <rect key="frame" x="35" y="11.5" width="272" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQO-JI-oCS">
                                             <rect key="frame" x="14" y="7" width="13" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="13" id="IBV-LO-u98"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="uRL-Az-Ky6" firstAttribute="centerY" secondItem="I2w-LE-0Nt" secondAttribute="centerY" id="9x4-4O-RMR"/>
-                                        <constraint firstItem="uRL-Az-Ky6" firstAttribute="leading" secondItem="WQO-JI-oCS" secondAttribute="trailing" constant="5" id="AIg-RK-rws"/>
-                                        <constraint firstAttribute="trailing" secondItem="uRL-Az-Ky6" secondAttribute="trailing" constant="16" id="Qgg-fw-qgD"/>
-                                        <constraint firstItem="WQO-JI-oCS" firstAttribute="top" secondItem="I2w-LE-0Nt" secondAttribute="top" constant="7" id="mRf-TR-yta"/>
-                                        <constraint firstAttribute="bottom" secondItem="WQO-JI-oCS" secondAttribute="bottom" constant="9.5" id="pJA-zC-uHi"/>
-                                        <constraint firstItem="WQO-JI-oCS" firstAttribute="leading" secondItem="I2w-LE-0Nt" secondAttribute="leading" constant="14" id="qhf-FA-U12"/>
+                                        <constraint firstItem="uRL-Az-Ky6" firstAttribute="leading" secondItem="WQO-JI-oCS" secondAttribute="trailing" constant="8" id="DZI-jl-jMD"/>
+                                        <constraint firstItem="WQO-JI-oCS" firstAttribute="leading" secondItem="I2w-LE-0Nt" secondAttribute="leading" constant="14" id="Ggm-E5-8Ul"/>
+                                        <constraint firstItem="uRL-Az-Ky6" firstAttribute="top" secondItem="I2w-LE-0Nt" secondAttribute="top" constant="11.5" id="QcV-xI-4gc"/>
+                                        <constraint firstAttribute="trailing" secondItem="uRL-Az-Ky6" secondAttribute="trailing" id="RUS-gI-Bho"/>
+                                        <constraint firstAttribute="bottom" secondItem="uRL-Az-Ky6" secondAttribute="bottom" constant="11" id="lDF-Sf-mW8"/>
+                                        <constraint firstAttribute="bottom" secondItem="WQO-JI-oCS" secondAttribute="bottom" constant="9.5" id="qJQ-gl-UFP"/>
+                                        <constraint firstItem="WQO-JI-oCS" firstAttribute="top" secondItem="I2w-LE-0Nt" secondAttribute="top" constant="7" id="umj-Nh-MSW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -94,7 +98,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
-                                                        <action selector="done" destination="NCC-kY-lZf" eventType="editingDidEndOnExit" id="L1P-4j-0wr"/>
+                                                        <action selector="done" destination="NCC-kY-lZf" eventType="editingDidEndOnExit" id="kjd-r3-65k"/>
                                                         <outlet property="delegate" destination="NCC-kY-lZf" id="GHp-KU-Lkw"/>
                                                     </connections>
                                                 </textField>
@@ -115,7 +119,11 @@
                                 <action selector="cancel" destination="NCC-kY-lZf" id="nOh-PW-p0c"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="zDy-JP-w8L"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="zDy-JP-w8L">
+                            <connections>
+                                <action selector="done" destination="NCC-kY-lZf" id="j7U-ZI-D2S"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="doneBarButton" destination="zDy-JP-w8L" id="Jfd-I0-jTR"/>

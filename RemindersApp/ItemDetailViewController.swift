@@ -15,40 +15,46 @@ protocol ItemDetailViewControllerDelegate: class {
 }
 
 class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
+    // MARK: - Outlets
+    @IBOutlet weak var textField: UITextField!
+    // MARK: Actions
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
     weak var delegate: ItemDetailViewControllerDelegate?
-    var itemToEdit: ReminderItem?
+    var itemToEdit: ReminderItem? // Build ReminderItem
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.largeTitleDisplayMode = .never
         self.title = "New Reminder"
-        textField.becomeFirstResponder()
-        // the nav bar looks for the title property.
-        if let item = itemToEdit {
+        
+        if let item = itemToEdit { // If there is a Reminder Item Object, change the title and text.
             title = "Edit Item"
             textField.text = item.text
             doneBarButton.isEnabled = true
         }
     }
     
-    // MARK: - Outlets
-    @IBOutlet weak var textField: UITextField!
-    // MARK: Actions
-    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
+    }
     
+    // MARK:- Actions
     @IBAction func cancel() {
         delegate?.itemDetailViewControllerDidCancel(self)
     }
     @IBAction func done() {
-        if let item = itemToEdit {
+        if let itemToEdit = itemToEdit {
+            itemToEdit.text = textField.text!
+            delegate?.itemDetailViewController(self, didFinishEditting: itemToEdit)
+        } else {
+            let item = ReminderItem()
             item.text = textField.text!
-            delegate?.itemDetailViewController(self, didFinishEditting: item)
-        }
-        let item = ReminderItem()
-        item.text = textField.text!
-        delegate?.itemDetailViewController(self, didFinishAdding: item)
-        
-    }
+            delegate?.itemDetailViewController(self, didFinishAdding: item)
+           }
+          }
     
     // MARK: - Table View Delegates
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -59,12 +65,9 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let oldText = textField.text!
         let stringRange = Range(range, in:oldText)!
-        let newText = oldText.replacingCharacters(in: stringRange, with: string)
-        if newText.isEmpty {
-            doneBarButton.isEnabled = false
-        } else {
-            doneBarButton.isEnabled = true
-        }
+        let newText = oldText.replacingCharacters(in: stringRange,
+                                                  with: string)
+        doneBarButton.isEnabled = !newText.isEmpty
         return true
     }
     
@@ -72,8 +75,6 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         doneBarButton.isEnabled = false
         return true
     }
-    
-    
 }
     
     
