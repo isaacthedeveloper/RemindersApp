@@ -10,8 +10,8 @@ import UIKit
 
 protocol ItemDetailViewControllerDelegate: class {
     func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController)
-    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ReminderItem)
-    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditting item: ReminderItem)
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem)
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditting item: ChecklistItem)
 }
 
 class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
@@ -21,13 +21,13 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
     weak var delegate: ItemDetailViewControllerDelegate?
-    var itemToEdit: ReminderItem? // Build ReminderItem
+    var itemToEdit: ChecklistItem? // Build ReminderItem
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.largeTitleDisplayMode = .never
-        self.title = "New Reminder"
+        self.title = "New Checklist"
         
         if let item = itemToEdit { // If there is a Reminder Item Object, change the title and text.
             title = "Edit Item"
@@ -50,7 +50,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             itemToEdit.text = textField.text!
             delegate?.itemDetailViewController(self, didFinishEditting: itemToEdit)
         } else {
-            let item = ReminderItem()
+            let item = ChecklistItem()
             item.text = textField.text!
             delegate?.itemDetailViewController(self, didFinishAdding: item)
            }

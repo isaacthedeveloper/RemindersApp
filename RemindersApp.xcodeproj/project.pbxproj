@@ -7,25 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7383BCE021D564E1008FA3D4 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7383BCDF21D564E1008FA3D4 /* AllListsViewController.swift */; };
+		7383BCE221D57559008FA3D4 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7383BCE121D57559008FA3D4 /* Checklist.swift */; };
 		73BB747D21CDC1FF001346E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB747C21CDC1FF001346E6 /* AppDelegate.swift */; };
 		73BB748221CDC1FF001346E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BB748021CDC1FF001346E6 /* Main.storyboard */; };
 		73BB748421CDC201001346E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BB748321CDC201001346E6 /* Assets.xcassets */; };
 		73BB748721CDC201001346E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BB748521CDC201001346E6 /* LaunchScreen.storyboard */; };
-		73BB748F21CDC27F001346E6 /* ReminderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB748E21CDC27F001346E6 /* ReminderItem.swift */; };
-		73BB749121CDC2B5001346E6 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB749021CDC2B5001346E6 /* ReminderViewController.swift */; };
+		73BB748F21CDC27F001346E6 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB748E21CDC27F001346E6 /* ChecklistItem.swift */; };
+		73BB749121CDC2B5001346E6 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB749021CDC2B5001346E6 /* ChecklistViewController.swift */; };
 		73BB749321CDC2CC001346E6 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB749221CDC2CC001346E6 /* ItemDetailViewController.swift */; };
+		73D617E021D6B3A300B22038 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D617DF21D6B3A300B22038 /* ListDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7383BCDF21D564E1008FA3D4 /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
+		7383BCE121D57559008FA3D4 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		73BB747921CDC1FF001346E6 /* RemindersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73BB747C21CDC1FF001346E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73BB748121CDC1FF001346E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		73BB748321CDC201001346E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73BB748621CDC201001346E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73BB748821CDC201001346E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73BB748E21CDC27F001346E6 /* ReminderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderItem.swift; sourceTree = "<group>"; };
-		73BB749021CDC2B5001346E6 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		73BB748E21CDC27F001346E6 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		73BB749021CDC2B5001346E6 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		73BB749221CDC2CC001346E6 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		73D617DF21D6B3A300B22038 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +65,34 @@
 			isa = PBXGroup;
 			children = (
 				73BB747C21CDC1FF001346E6 /* AppDelegate.swift */,
+				73D617E121D6FDE700B22038 /* Model */,
+				73D617E221D6FF9900B22038 /* Controller */,
 				73BB748021CDC1FF001346E6 /* Main.storyboard */,
-				73BB748E21CDC27F001346E6 /* ReminderItem.swift */,
-				73BB749021CDC2B5001346E6 /* ReminderViewController.swift */,
-				73BB749221CDC2CC001346E6 /* ItemDetailViewController.swift */,
 				73BB748321CDC201001346E6 /* Assets.xcassets */,
 				73BB748521CDC201001346E6 /* LaunchScreen.storyboard */,
 				73BB748821CDC201001346E6 /* Info.plist */,
 			);
 			path = RemindersApp;
+			sourceTree = "<group>";
+		};
+		73D617E121D6FDE700B22038 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				73BB748E21CDC27F001346E6 /* ChecklistItem.swift */,
+				7383BCE121D57559008FA3D4 /* Checklist.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73D617E221D6FF9900B22038 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7383BCDF21D564E1008FA3D4 /* AllListsViewController.swift */,
+				73D617DF21D6B3A300B22038 /* ListDetailViewController.swift */,
+				73BB749021CDC2B5001346E6 /* ChecklistViewController.swift */,
+				73BB749221CDC2CC001346E6 /* ItemDetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73BB748F21CDC27F001346E6 /* ReminderItem.swift in Sources */,
+				73BB748F21CDC27F001346E6 /* ChecklistItem.swift in Sources */,
+				73D617E021D6B3A300B22038 /* ListDetailViewController.swift in Sources */,
 				73BB749321CDC2CC001346E6 /* ItemDetailViewController.swift in Sources */,
 				73BB747D21CDC1FF001346E6 /* AppDelegate.swift in Sources */,
-				73BB749121CDC2B5001346E6 /* ReminderViewController.swift in Sources */,
+				7383BCE221D57559008FA3D4 /* Checklist.swift in Sources */,
+				7383BCE021D564E1008FA3D4 /* AllListsViewController.swift in Sources */,
+				73BB749121CDC2B5001346E6 /* ChecklistViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

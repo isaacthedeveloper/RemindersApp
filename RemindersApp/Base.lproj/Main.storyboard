@@ -9,16 +9,111 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--All Lists-->
+        <scene sceneID="ZtS-ge-NoC">
+            <objects>
+                <tableViewController id="VlG-D0-jdZ" userLabel="All Lists" customClass="AllListsViewController" customModule="RemindersApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="weW-OE-UgX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="VlG-D0-jdZ" id="cRi-1o-83L"/>
+                            <outlet property="delegate" destination="VlG-D0-jdZ" id="5Eg-fd-8Lj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Reminders" id="7kP-6e-tbl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FsJ-gO-LW2">
+                            <connections>
+                                <segue destination="qbd-rj-S74" kind="show" identifier="AddChecklist" id="JNu-Is-AwE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="K6Q-OA-FBv" kind="show" identifier="ShowChecklist" id="mpm-Un-jJR"/>
+                        <segue destination="qbd-rj-S74" kind="show" identifier="EditChecklist" id="xzd-2T-aW5"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffq-Zs-RDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-252" y="-577"/>
+        </scene>
+        <!--Add Reminder List-->
+        <scene sceneID="NBa-Dk-knm">
+            <objects>
+                <tableViewController storyboardIdentifier="ListDetailViewController" id="qbd-rj-S74" customClass="ListDetailViewController" customModule="RemindersApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="iOn-d2-CLG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="ZbT-ev-uYi">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fdm-02-JVk">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fdm-02-JVk" id="a3M-qI-Zgd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the List" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="h8Q-zG-YrQ">
+                                                    <rect key="frame" x="16" y="6" width="343" height="31.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="qbd-rj-S74" eventType="editingDidEndOnExit" id="lWt-z5-c16"/>
+                                                        <outlet property="delegate" destination="qbd-rj-S74" id="1AV-jV-1CO"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="h8Q-zG-YrQ" secondAttribute="trailing" constant="16" id="1lH-3D-sC9"/>
+                                                <constraint firstAttribute="bottom" secondItem="h8Q-zG-YrQ" secondAttribute="bottom" constant="6" id="84B-vG-I9v"/>
+                                                <constraint firstItem="h8Q-zG-YrQ" firstAttribute="leading" secondItem="a3M-qI-Zgd" secondAttribute="leading" constant="16" id="Sb9-Yg-6SW"/>
+                                                <constraint firstItem="h8Q-zG-YrQ" firstAttribute="top" secondItem="a3M-qI-Zgd" secondAttribute="top" constant="6" id="YvH-E1-KXB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="qbd-rj-S74" id="dku-Ix-ymj"/>
+                            <outlet property="delegate" destination="qbd-rj-S74" id="Ugd-Jj-UhH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Reminder List" largeTitleDisplayMode="never" id="bRB-Uu-mHF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7YZ-J8-oiz">
+                            <connections>
+                                <action selector="cancel" destination="qbd-rj-S74" id="4MS-Tf-Fqa"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="hig-YL-tu6">
+                            <connections>
+                                <action selector="done" destination="qbd-rj-S74" id="6wu-Qx-7kg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneBarButton" destination="hig-YL-tu6" id="iHK-Zz-nyJ"/>
+                        <outlet property="textField" destination="h8Q-zG-YrQ" id="g77-v0-7bh"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5n-Aw-1av" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-252" y="267.61619190404798"/>
+        </scene>
+        <!--Reminder-->
         <scene sceneID="Kjm-84-oYU">
             <objects>
-                <tableViewController id="K6Q-OA-FBv" customClass="ReminderViewController" customModule="RemindersApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="K6Q-OA-FBv" userLabel="Reminder" customClass="ChecklistViewController" customModule="RemindersApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tkz-By-K3k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ReminderItem" id="NW7-he-Crp">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="NW7-he-Crp">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NW7-he-Crp" id="I2w-LE-0Nt">
@@ -61,7 +156,7 @@
                             <outlet property="delegate" destination="K6Q-OA-FBv" id="lpu-JX-5R4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="awb-CH-LaT">
+                    <navigationItem key="navigationItem" title="Name of the Reminder" id="awb-CH-LaT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ryc-hQ-Tsi">
                             <connections>
                                 <segue destination="NCC-kY-lZf" kind="show" identifier="AddItem" id="ylB-8z-qVe"/>
@@ -71,7 +166,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jM-Mx-gmL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="464.80000000000001" y="107.49625187406298"/>
+            <point key="canvasLocation" x="782" y="-577"/>
         </scene>
         <!--Title-->
         <scene sceneID="OyS-cQ-R9a">
@@ -132,7 +227,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07R-7q-jih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1485.5999999999999" y="2.2488755622188905"/>
+            <point key="canvasLocation" x="1694" y="-565"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PnA-pt-HHo">
@@ -143,15 +238,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="K6Q-OA-FBv" kind="relationship" relationship="rootViewController" id="7sW-BZ-yF3"/>
+                        <segue destination="VlG-D0-jdZ" kind="relationship" relationship="rootViewController" id="xKo-aW-9dM"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OF1-bE-63r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-487" y="108"/>
+            <point key="canvasLocation" x="-1196" y="-577"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="jIN-J5-INK"/>
+        <segue reference="JNu-Is-AwE"/>
     </inferredMetricsTieBreakers>
 </document>
