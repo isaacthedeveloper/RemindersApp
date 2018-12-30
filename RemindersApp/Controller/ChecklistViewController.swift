@@ -14,7 +14,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         title = checklist.name
-        loadChecklistItem()
+
        }
     // MARK:- Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,47 +46,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         label.text = item.text
     }
     
-    // MARK:- Data Persistance
-    // Get the path to document directory
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    // Use that path to get the data file path where reminder items will be stored
-    func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Checklist.plist")
-    }
-
-    func saveChecklistItem() {
-        // Create an instance of PropoertyListEncoder, Add reminder items in it in binary data.
-        let encoder = PropertyListEncoder()
-        // Block of code to catch errors begins here
-        do {
-            // The encoder is used to try to encode the items array, and it throws a swift error if encoding fails. the Try keyword lets us know it can fail and if it does it will throw an error. if it fails go to catch.
-            let data = try encoder.encode(checklist.items)
-            // If the data constant was created, write the data to a file using dataFilePath. write method throws an error so use the Try statment.
-            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-            // catch statement indicates the blcok of code to be executes if error was thrown.
-        } catch {
-            print("Error encoding items array \(error.localizedDescription)")
-        }
-    }
     
-    func loadChecklistItem() {
-        // Put the results of dateFilePath here.
-        let path = dataFilePath()
-        // try to load the contents of the plist into a new Data object. try? command attempts to create the Data object but returns nil if it fails.
-        if let data = try? Data(contentsOf: path) {
-            // load ReminderItem using a decoder.
-            let decoder = PropertyListDecoder()
-            do {
-                // load saved data back into items using decode method.
-                checklist.items = try decoder.decode([ChecklistItem].self, from: data)
-            } catch {
-                print("Error decoding item array: \(error.localizedDescription)")
-            }
-        }
-    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,14 +69,13 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         item.toggleChecked()
         configureCheckmark(for: cell, with: item)
         tableView.deselectRow(at: indexPath, animated: true)
-        saveChecklistItem()
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         checklist.items.remove(at: indexPath.row)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
-        saveChecklistItem()
+
     }
 
     // MARK: - ItemDetailViewController Delegates
@@ -131,7 +90,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
         navigationController?.popViewController(animated: true)
-        saveChecklistItem()
+
     }
 
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditting item: ChecklistItem) {
@@ -143,7 +102,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
          }
         }
         navigationController?.popViewController(animated: true)
-        saveChecklistItem()
+
     }
 
 

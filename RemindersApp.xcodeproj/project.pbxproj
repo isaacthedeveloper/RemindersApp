@@ -17,6 +17,7 @@
 		73BB749121CDC2B5001346E6 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB749021CDC2B5001346E6 /* ChecklistViewController.swift */; };
 		73BB749321CDC2CC001346E6 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB749221CDC2CC001346E6 /* ItemDetailViewController.swift */; };
 		73D617E021D6B3A300B22038 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D617DF21D6B3A300B22038 /* ListDetailViewController.swift */; };
+		73D617E621D711F900B22038 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D617E521D711F900B22038 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		73BB749021CDC2B5001346E6 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		73BB749221CDC2CC001346E6 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		73D617DF21D6B3A300B22038 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		73D617E521D711F900B22038 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +66,10 @@
 		73BB747B21CDC1FF001346E6 /* RemindersApp */ = {
 			isa = PBXGroup;
 			children = (
-				73BB747C21CDC1FF001346E6 /* AppDelegate.swift */,
 				73D617E121D6FDE700B22038 /* Model */,
+				73D617E321D7046F00B22038 /* View */,
 				73D617E221D6FF9900B22038 /* Controller */,
-				73BB748021CDC1FF001346E6 /* Main.storyboard */,
-				73BB748321CDC201001346E6 /* Assets.xcassets */,
-				73BB748521CDC201001346E6 /* LaunchScreen.storyboard */,
+				73D617E421D7047C00B22038 /* Supporting FIles */,
 				73BB748821CDC201001346E6 /* Info.plist */,
 			);
 			path = RemindersApp;
@@ -78,6 +78,7 @@
 		73D617E121D6FDE700B22038 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				73D617E521D711F900B22038 /* DataModel.swift */,
 				73BB748E21CDC27F001346E6 /* ChecklistItem.swift */,
 				7383BCE121D57559008FA3D4 /* Checklist.swift */,
 			);
@@ -93,6 +94,24 @@
 				73BB749221CDC2CC001346E6 /* ItemDetailViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		73D617E321D7046F00B22038 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73BB748021CDC1FF001346E6 /* Main.storyboard */,
+				73BB748521CDC201001346E6 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		73D617E421D7047C00B22038 /* Supporting FIles */ = {
+			isa = PBXGroup;
+			children = (
+				73BB747C21CDC1FF001346E6 /* AppDelegate.swift */,
+				73BB748321CDC201001346E6 /* Assets.xcassets */,
+			);
+			path = "Supporting FIles";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +190,7 @@
 				73BB749321CDC2CC001346E6 /* ItemDetailViewController.swift in Sources */,
 				73BB747D21CDC1FF001346E6 /* AppDelegate.swift in Sources */,
 				7383BCE221D57559008FA3D4 /* Checklist.swift in Sources */,
+				73D617E621D711F900B22038 /* DataModel.swift in Sources */,
 				7383BCE021D564E1008FA3D4 /* AllListsViewController.swift in Sources */,
 				73BB749121CDC2B5001346E6 /* ChecklistViewController.swift in Sources */,
 			);
