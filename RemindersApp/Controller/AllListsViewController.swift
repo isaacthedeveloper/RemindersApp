@@ -16,8 +16,12 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         super.viewDidLoad()
         self.title = "Checklists"
         navigationController?.navigationBar.prefersLargeTitles = true
-        // Register cell identifier with the tableview
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -29,6 +33,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             performSegue(withIdentifier: "ShowChecklist", sender: checklist)
         }
     }
+    
+   
 
     // MARK:- Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,9 +42,19 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        // Fill in the cells
+        let cell: UITableViewCell!
+        if let c = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+            cell = c
+        } else {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        }
         let checklist = dataModel.lists[indexPath.row]
+        let count = checklist.countUncheckedItem()
+        if checklist.items.count == 0 {
+            cell.detailTextLabel!.text = "(No Items)"
+        } else {
+            cell.detailTextLabel!.text = count == 0 ? "Nothing left to do, take a break! 🏝" : "\(count) Items Remaining" // Ternary operator to evaluate true or false response.
+        }
         cell.textLabel?.text = checklist.name
         cell.accessoryType = .detailDisclosureButton
         return cell
